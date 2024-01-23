@@ -13,18 +13,21 @@ resource "azurerm_virtual_network" "vnet" {
 }
 
 module "nsg" {
+    count = length(var.nsg_name)
+
     source =  "./modules/nsg"
-    nsg_name = var.nsg_name
+    nsg_name = var.nsg_name[count.index]
     rgname = azurerm_resource_group.rg.name
     location = azurerm_resource_group.rg.location
 
 }
 
 module "subnet" {
+    for_each = length(var.subnets)
+
     source = "./modules/subnet"
-    subnet_name = var.subnet_name
+    subnet_name = each.value.subnet_name[count.index]
     rgname = azurerm_resource_group.rg.name
-    address_prefixes = var.address_prefixes
+    address_prefixes = each.value.address_prefixes[count.index]
     vnet_name = azurerm_virtual_network.vnet.name
-  
 }
