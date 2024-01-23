@@ -9,6 +9,10 @@ variable "subnet_name" {
     default = [ "subnet1", "subnet2" ]
   
 }
+variable "nsgname" {
+    default = "subnet-main"
+  
+}
 
 variable "address_prefixes" {
     type = list(string)
