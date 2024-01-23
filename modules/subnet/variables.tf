@@ -13,3 +13,8 @@ variable "address_prefixes" {
 variable "vnet_name" {
     type = string
 }
+
+variable "hello" {
+    
+  
+}
