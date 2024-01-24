@@ -1,6 +1,6 @@
 variable "nsg_name" {
     type = list(string)
-    default = [ "nsg1", "nsg2", "nsg3" ]
+    default = [ "nsg1", "nsg2", "nsg3","nsg4" ]
   
 }
 
