@@ -24,6 +24,7 @@ module "nsg" {
 
 module "subnet" {
     for_each = length(var.subnets)
+    for_each = length(var.subnets)
 
     source = "./modules/subnet"
     subnet_name = each.value.subnet_name[count.index]
