@@ -27,7 +27,7 @@ variable "nsg_name" {
 
 variable "subnet" {
   type = list(string)
-  default = [ "subnet1","subnet2","subnet3"]
+  default = [ "subnet1","subnet2","subnet3","subnet4"]
   
 }
 variable "address_prefixes" {
