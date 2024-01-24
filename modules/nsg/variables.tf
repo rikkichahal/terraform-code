@@ -3,7 +3,7 @@ variable "rgname" {
 }
 
 variable "nsg_name" {
-    type = string  
+    type = string
 }
 
 variable "location" {

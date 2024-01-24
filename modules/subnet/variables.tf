@@ -7,14 +7,9 @@ variable "rgname" {
 }
 
 variable "address_prefixes" {
-    type = string
+    default = ""
 }
 
 variable "vnet_name" {
     type = string
-}
-
-variable "hello" {
-    
-  
 }
