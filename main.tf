@@ -4,10 +4,6 @@ resource "azurerm_resource_group" "rg" {
   
 }
 
-locals {
-  
-}
-
 resource "azurerm_virtual_network" "vnet" {
 
     count = length(var.vnet_name)
@@ -75,21 +71,21 @@ resource "azurerm_application_gateway" "network" {
   }
 
   frontend_port {
-    name = local.frontend_port_name
+    name = local.frontend_port_name[count.index]
     port = 80
   }
 
   frontend_ip_configuration {
-    name                 = local.frontend_ip_configuration_name
+    name                 = local.frontend_ip_configuration_name[count.index]
     public_ip_address_id = azurerm_public_ip.example[count.index].id
   }
 
   backend_address_pool {
-    name = local.backend_address_pool_name
+    name = local.backend_address_pool_name[count.index]
   }
 
   backend_http_settings {
-    name                  = local.http_setting_name
+    name                  = local.http_setting_name[count.index]
     cookie_based_affinity = "Disabled"
     path                  = "/path1/"
     port                  = 80
@@ -98,18 +94,21 @@ resource "azurerm_application_gateway" "network" {
   }
 
   http_listener {
-    name                           = local.listener_name
-    frontend_ip_configuration_name = local.frontend_ip_configuration_name
-    frontend_port_name             = local.frontend_port_name
+    name                           = local.listener_name[count.index]
+    frontend_ip_configuration_name = local.frontend_ip_configuration_name[count.index]
+    frontend_port_name             = local.frontend_port_name[count.index]
     protocol                       = "Http"
   }
 
   request_routing_rule {
-    name                       = local.request_routing_rule_name
+    name                       = local.request_routing_rule_name[count.index]
     priority                   = 9
     rule_type                  = "Basic"
-    http_listener_name         = local.listener_name
-    backend_address_pool_name  = local.backend_address_pool_name
-    backend_http_settings_name = local.http_setting_name
+    http_listener_name         = local.listener_name[count.index]
+    backend_address_pool_name  = local.backend_address_pool_name[count.index]
+    backend_http_settings_name = local.http_setting_name[count.index]
   }
 }
+
+
+
