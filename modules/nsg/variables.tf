@@ -1,8 +1,8 @@
 variable "rgname" {
-  
+    type = string
 }
 variable "nsg_name" {
-  
+    type = string
 }
 variable "creatnsg" {
     type = bool
@@ -16,5 +16,5 @@ variable "nsgname" {
 }
 
 variable "location" {
-  
+    type = string
 }

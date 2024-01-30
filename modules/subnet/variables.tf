@@ -1,13 +1,13 @@
 variable "subnet_name" {
-  
+    type = string
 }
 
 variable "rgname" {
-  
+    type = string
 }
 
 variable "address_prefixes" {
-  
+    default = ""
 }
 variable "createsn" {
   type = bool
@@ -16,5 +16,5 @@ variable "createsn" {
 }
 
 variable "vnet_name" {
-  
+    type = string
 }
