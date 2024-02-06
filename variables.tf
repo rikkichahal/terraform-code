@@ -37,13 +37,13 @@ variable "pip" {
 #         subnet_name = ["subnet1" ]   
 #         address_prefixes = ["10.0.1.0/24"]
 #     },
-
 #     "subnet1" = {
 #         subnet_name = ["subnet2" ]   
 #         address_prefixes = [ "10.0.2.0/24"]
 #   }
 # }
 # }
+
 variable backend_address_pool_name {
   type = list(string)
   default = ["port1","port2", "port3", "port4"]
@@ -85,6 +85,7 @@ variable "subnet" {
 variable "address_prefixes" {
   type = list(string)
   default = [ "10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24", "10.0.4.0/24"]
+  description = "These are the subnets address "
 }
 
 
