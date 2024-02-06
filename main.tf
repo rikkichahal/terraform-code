@@ -42,9 +42,7 @@ resource "azurerm_subnet_network_security_group_association" "example" {
   network_security_group_id = module.nsg[count.index].id
 }
 
-# output "assoc" {
-#   value = azurerm_subnet_network_security_group_association.example
-# }
+
 resource "azurerm_public_ip" "example" {
   count = length(var.pip)
   name                = var.pip[count.index]
