@@ -75,6 +75,7 @@ variable frontend_port_name  {
  variable redirect_configuration_name {
   type = list(string)
   default = ["port1","port2", "port3", "port4"]
+  description = "Redirect config names"
  }
 
 
