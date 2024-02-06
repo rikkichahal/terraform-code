@@ -51,6 +51,7 @@ resource "azurerm_public_ip" "example" {
   allocation_method   = "Dynamic"
 }
 
+#Application gateway for balance the load and routing 
 resource "azurerm_application_gateway" "network" {
   count = length(var.vnet_name)
   name                = var.appgw_name[count.index]
