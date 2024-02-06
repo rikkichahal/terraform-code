@@ -52,6 +52,7 @@ variable backend_address_pool_name {
 variable frontend_port_name  {
   type = list(string)
   default = ["port1","port2", "port3", "port4"]
+  description = "Front end port names"
 
 }           
   variable frontend_ip_configuration_name {
