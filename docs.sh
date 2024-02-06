@@ -1,3 +1,3 @@
-#!bin/sh
+#!/bin/sh
 
 terraform-docs markdown . > specs.md
