@@ -82,7 +82,7 @@ variable frontend_port_name  {
 variable "subnet" {
   type = list(string)
   default = [ "subnet1","subnet2","subnet3","subnet4"]
-  
+  description = "subnet names"
 }
 variable "address_prefixes" {
   type = list(string)
